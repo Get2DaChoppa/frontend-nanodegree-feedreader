@@ -124,7 +124,7 @@ $(function() {
             let newFeedContent = $('.feed').html();
             expect(prevFeedContent === newFeedContent).toBe(false);
             done();
-        })
+        });
 
 
     });
