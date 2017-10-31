@@ -110,12 +110,16 @@ $(function() {
             newFeedContent;
 
         beforeEach(function(done){
-            prevFeedContent = $('.feed').html();
-            loadFeed(1,done);
-         });
+            loadFeed(0 ,function() {
+                prevFeedContent = $('.feed').html();
+                loadFeed(1,function() {
+                    newFeedContent = $('.feed').html();
+                    done();
+                });
+            });
+        });
 
         it('should change content',function(done){
-            newFeedContent = $('.feed').html();
             expect(prevFeedContent).not.toBe(newFeedContent);
             done();
         });
